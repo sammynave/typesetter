@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: typesetter
+    repo: https://github.com/sammynave/typesetter
+    env: static
+    buildCommand: pnpm install && pnpm run build
+    staticPublishPath: build
+    autoDeploy: true
