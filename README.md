@@ -1,5 +1,33 @@
 https://typesetter.onrender.com/
 
+
+# Hyphenation
+
+This library supports optional hyphenation. `hypher`seems to work well but any object with a `hyphenate` method that returns an array of syllables will work. example:
+
+`npm i hypher hyphenation.en-us`
+
+```js
+import Hypher from 'hypher'
+import english from 'hyphenation.en-us'
+
+const hyphenator = new Hypher(english)
+
+SvgTypeset(
+	"some text that you want hyphenated when formatting",
+	textEl,
+	gEl,
+	'center,
+	[60],
+	20000,
+	true,
+	'|',
+	0,
+	hyphenator
+);
+
+```
+
 # TODO
 
 - [ ] docs

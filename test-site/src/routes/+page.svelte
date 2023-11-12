@@ -15,8 +15,8 @@
 	let textEl: SVGTextElement;
 	let gEl: SVGGElement;
 
-	onMount(async () => {
-		await SvgTypeset(
+	onMount(() => {
+		SvgTypeset(
 			text,
 			textEl,
 			gEl,
@@ -25,8 +25,7 @@
 			20,
 			alignment === 'center',
 			'|',
-			0,
-			true
+			0
 		);
 	});
 </script>
