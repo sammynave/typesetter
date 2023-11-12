@@ -56,7 +56,7 @@ export interface Dimensions {
 	readonly height: number;
 }
 
-export type Hyphenator = { hyphenate: () => Array<string> };
+export type Hyphenator = { hyphenate: (word: string) => Array<string> };
 
 export interface Demerit {
 	readonly fitness: number;
