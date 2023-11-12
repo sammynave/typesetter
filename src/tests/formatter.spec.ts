@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { formatter } from './formatter.js';
+import { formatter } from '$lib/formatter.js';
 import {
 	// expectedCenter,
 	expectedCenterNoHyph,
@@ -7,8 +7,8 @@ import {
 	expectedJustifyNoHyph,
 	// expectedLeft,
 	expectedLeftNoHyph
-} from './test-helpers/expected/formatter/index.js';
-import { text } from './test-helpers/test-text.js';
+} from '../test-helpers/expected/formatter/index.js';
+import { text } from '../test-helpers/test-text.js';
 
 // FIXME: re-enable when hyphenation is working.
 // possibly force hyphenation lib to be passed in

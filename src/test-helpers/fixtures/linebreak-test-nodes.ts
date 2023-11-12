@@ -1,4 +1,4 @@
-import type { LineNode } from '../../types.js';
+import type { LineNode } from '../$lib/types.js';
 
 export const testNodes: ReadonlyArray<LineNode> = [
 	{ kind: 'box', value: '', width: 0 },

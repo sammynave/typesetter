@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { box } from './line-nodes.js';
+import { box } from '$lib/line-nodes.js';
 
 describe('Box', () => {
 	it('passes', () => {

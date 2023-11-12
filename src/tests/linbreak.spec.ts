@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { testNodes } from './test-helpers/fixtures/linebreak-test-nodes.js';
-import { linebreak } from './linebreak.js';
+import { testNodes } from '../test-helpers/fixtures/linebreak-test-nodes.js';
+import { linebreak } from '$lib/linebreak.js';
 
 describe('linebreak', () => {
 	it('returns the correct break points', () => {

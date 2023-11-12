@@ -1,8 +1,8 @@
 <script lang="ts">
-	import CircleText from './../lib/components/CircleText.svelte';
-	import { text } from '$lib/test-helpers/test-text.js';
-	import TypesetText from '$lib/components/TypesetText.svelte';
-	import PineTree from '$lib/components/PineTree.svelte';
+	import CircleText from './../components/CircleText.svelte';
+	import { text } from '../test-helpers/test-text.js';
+	import TypesetText from './../components/TypesetText.svelte';
+	import PineTree from './../components/PineTree.svelte';
 
 	const width = 300;
 	const height = 300;

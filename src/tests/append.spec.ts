@@ -1,7 +1,6 @@
-// tslint:disable:no-expression-statement no-object-mutation
 import { describe, expect, it } from 'vitest';
-import { append } from './append.js';
-import { linkedListFrom, linkedListNodeFrom } from './index.js';
+import { append } from '$lib/linked-list/append.js';
+import { linkedListFrom, linkedListNodeFrom } from '$lib/linked-list/index.js';
 
 describe('append', () => {
 	it('append - empty list', () => {

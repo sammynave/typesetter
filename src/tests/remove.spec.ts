@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { linkedListFrom } from './index.js';
-import { remove } from './remove.js';
+import { linkedListFrom } from '$lib/linked-list/index.js';
+import { remove } from '$lib/linked-list/remove.js';
 
 describe('linkedListFrom', () => {
 	it('remove an item at beginning', () => {
