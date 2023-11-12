@@ -3,9 +3,11 @@ https://typesetter.onrender.com/
 # TODO
 
 - [ ] docs
+- [ ] test coverage
 - [ ] better typing
 - [ ] remove `ramda`
-- [ ] publish to npm
+- [x] publish to npm
+- [ ] improve api
 
 # create-svelte
 
