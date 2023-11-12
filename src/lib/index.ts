@@ -1,4 +1,3 @@
-export * from './constants.js';
-export * from './formatter.js';
-export * from './linebreak.js';
+import { SvgTypeset } from '$lib/svg/svg-typeset.js';
+export { SvgTypeset };
 export type * from './types.js';
