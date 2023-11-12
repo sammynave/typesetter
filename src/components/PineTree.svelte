@@ -1,7 +1,7 @@
 <svelte:options namespace="svg" />
 
 <script lang="ts">
-	import type { ValidAlignment } from '$lib/types.js';
+	import type { Hyphenator, ValidAlignment } from '$lib/types.js';
 	import { SvgTypeset } from '$lib/svg/svg-typeset.js';
 	import { onMount } from 'svelte';
 
@@ -10,6 +10,7 @@
 	export let padding: number;
 	export let text: string;
 	export let fontSize: number = 11;
+	export let hyphenator: Hyphenator | undefined = undefined;
 
 	const alignment: ValidAlignment = 'center';
 	let textEl: SVGTextElement;
@@ -20,8 +21,8 @@
 		130, 170, 210, 240, 90
 	];
 
-	onMount(async () => {
-		await SvgTypeset(
+	onMount(() => {
+		SvgTypeset(
 			text,
 			textEl,
 			gEl,
@@ -31,7 +32,7 @@
 			alignment === 'center',
 			'|',
 			0,
-			true
+			hyphenator
 		);
 	});
 </script>

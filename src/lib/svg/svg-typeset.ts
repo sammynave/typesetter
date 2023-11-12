@@ -1,10 +1,10 @@
 import { formatter } from '$lib/formatter.js';
 import { linebreak } from '$lib/linebreak.js';
-import type { ValidAlignment } from '$lib/types.js';
+import type { Hyphenator, ValidAlignment } from '$lib/types.js';
 import { measure } from './measurer.js';
 import { write } from './writer.js';
 
-export const SvgTypeset = async (
+export const SvgTypeset = (
 	text: string,
 	element: SVGTextElement,
 	parentNode: SVGGElement,
@@ -14,7 +14,7 @@ export const SvgTypeset = async (
 	center: boolean,
 	spaceChar: string,
 	startAt: number = 0,
-	withHyphenation: boolean = false
+	hyphenator?: Hyphenator
 ) => {
 	/* TODO
 	 * actual benchmarks. we clone and replace to try and limit reflows
@@ -30,10 +30,10 @@ export const SvgTypeset = async (
 		return;
 	}
 
-	const format = await formatter(
+	const format = formatter(
 		(x: any) => measure(element, parentNode, x).width,
 		spaceChar,
-		withHyphenation
+		hyphenator
 	);
 
 	const nodes = format[alignment](text);

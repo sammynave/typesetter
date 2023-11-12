@@ -27,8 +27,8 @@
 	let gEl: SVGGElement;
 	let alignment: ValidAlignment = 'center';
 
-	onMount(async () => {
-		await SvgTypeset(
+	onMount(() => {
+		SvgTypeset(
 			text,
 			textEl,
 			gEl,

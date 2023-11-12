@@ -5,12 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  hyphenation.en-us:
-    specifier: ^0.2.1
-    version: 0.2.1
-  hypher:
-    specifier: ^0.2.5
-    version: 0.2.5
   ramda:
     specifier: ^0.29.1
     version: 0.29.1
@@ -43,6 +37,12 @@ devDependencies:
   eslint-plugin-svelte:
     specifier: ^2.30.0
     version: 2.35.0(eslint@8.53.0)(svelte@4.2.3)
+  hyphenation.en-us:
+    specifier: ^0.2.1
+    version: 0.2.1
+  hypher:
+    specifier: ^0.2.5
+    version: 0.2.5
   prettier:
     specifier: ^2.8.0
     version: 2.8.8
@@ -1346,11 +1346,11 @@ packages:
     resolution: {integrity: sha512-ItXYgvIpfN8rfXl/GTBQC7DsSb5PPsKh9gGzViK/iWzCS5mvjDebFJ6xCcIYo8dal+nSp2rUzvTT7BosrKlL8A==}
     dependencies:
       hypher: 0.2.5
-    dev: false
+    dev: true
 
   /hypher@0.2.5:
     resolution: {integrity: sha512-kUTpuyzBWWDO2VakmjHC/cxesg4lKQP+Fdc+7lrK4yvjNjkV9vm5UTZMDAwOyyHTOpbkYrAMlNZHG61NnE9vYQ==}
-    dev: false
+    dev: true
 
   /ignore-walk@5.0.1:
     resolution: {integrity: sha512-yemi4pMf51WKT7khInJqAvsIGzoqYXblnsz0ql8tM+yi1EKYTY1evX4NAbJrLL/Aanr2HyZeluqU+Oi7MGHokw==}
