@@ -1,4 +1,3 @@
-// tslint:disable:no-expression-statement
 import { describe, expect, it } from 'vitest';
 import { testNodes } from './test-helpers/fixtures/linebreak-test-nodes.js';
 import { linebreak } from './linebreak.js';

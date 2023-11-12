@@ -33,10 +33,7 @@ export const foldable = (list: LinkedList): ReducableLinkedList => {
 		return result;
 	};
 
-	/* tslint:disable:no-object-mutation no-expression-statement */
-	// @ts-ignore
 	list.reduce = reduce;
-	/* tslint:enable:no-object-mutation no-expression-statement */
 	return list as ReducableLinkedList;
 };
 

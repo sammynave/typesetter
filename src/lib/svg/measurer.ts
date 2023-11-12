@@ -5,11 +5,9 @@ const TSPAN_Y = 0;
 export const createTspan = (textContent: string, x: number = TSPAN_X, y: number = TSPAN_Y) => {
 	const tspan = document.createElementNS(SVG_NS, 'tspan');
 
-	// tslint:disable no-expression-statement no-object-mutation
 	tspan.setAttribute('x', `${x}`);
 	tspan.setAttribute('y', `${y}em`);
 	tspan.textContent = textContent;
-	// tslint:enable no-expression-statement no-object-mutation
 
 	return tspan;
 };
@@ -23,7 +21,6 @@ export const createTspan = (textContent: string, x: number = TSPAN_X, y: number 
 export const measure = (el: SVGTextElement, containerEl: SVGGElement, text: string) => {
 	const tempText = el.cloneNode(true) as SVGTextElement;
 
-	// tslint:disable no-expression-statement
 	while (tempText.lastChild) {
 		tempText.removeChild(tempText.lastChild);
 	}
@@ -33,7 +30,6 @@ export const measure = (el: SVGTextElement, containerEl: SVGGElement, text: stri
 
 	const { width, height } = tempText.getBBox();
 	containerEl.removeChild(tempText); // element.remove() doesn't work in IE11
-	// tslint:enable no-expression-statement
 
 	return { width, height };
 };

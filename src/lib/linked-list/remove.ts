@@ -1,4 +1,3 @@
-/* tslint:disable:no-object-mutation readonly-keyword no-expression-statement */
 import { dec, isNil } from 'ramda';
 import type { LinkedListNode, ReducableLinkedList } from '../types.js';
 

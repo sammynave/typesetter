@@ -1,4 +1,3 @@
-// tslint:disable:no-expression-statement
 import { describe, expect, it } from 'vitest';
 import { box } from './line-nodes.js';
 

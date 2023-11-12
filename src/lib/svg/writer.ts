@@ -12,26 +12,18 @@ const moveToNextLine = (y: number) => y + Y_EM;
 
 const handleBox = (acc: WriteLineNodeAccumulator, node: Box) => {
 	const t = createTspan(node.value, acc.x, acc.y);
-	// tslint:disable no-expression-statement no-object-mutation
 	acc.svgElement.appendChild(t);
-	// @ts-ignore TODO: use ramda
 	acc.x += node.width;
-	// tslint:enable no-expression-statement no-object-mutation
 	return acc;
 };
 
 const handleGlue = (acc: WriteLineNodeAccumulator, node: Glue) => {
-	// tslint:disable no-expression-statement no-object-mutation
-	// @ts-ignore TODO: use ramda
 	acc.x += node.width + acc.line.ratio * (acc.line.ratio < 0 ? node.shrink : node.stretch);
-	// tslint:enable no-expression-statement no-object-mutation
 	return acc;
 };
 
 const handleHyphenate = (acc: WriteLineNodeAccumulator) => {
-	// tslint:disable no-expression-statement
 	acc.svgElement.appendChild(createTspan('-', acc.x, acc.y));
-	// tslint:enable no-expression-statement
 	return acc;
 };
 
@@ -47,18 +39,13 @@ const writeLineNode = (
 	index: number,
 	array: ReadonlyArray<LineNode>
 ) => {
-	// tslint:disable no-if-statement
 	if (node.kind === 'box') {
 		return COMBINE_TSPANS
 			? shouldCombine(node, array, index)
 				? (() => {
 						const prevTspan = acc.svgElement.lastChild;
-						// tslint:disable no-object-mutation no-expression-statement
-						// @ts-ignore
 						prevTspan.textContent = prevTspan.textContent + node.value;
-						// @ts-ignore
 						acc.x += node.width;
-						// tslint:enable no-object-mutation no-expression-statement
 						return acc;
 				  })()
 				: handleBox(acc, node)
@@ -70,7 +57,6 @@ const writeLineNode = (
 	} else {
 		return acc;
 	}
-	// tslint:enable no-if-statement
 };
 
 const writeLine = (acc: WriteLineAccumulator, line: Line, lineIndex: number) => {
@@ -86,19 +72,14 @@ const writeLine = (acc: WriteLineAccumulator, line: Line, lineIndex: number) => 
 		y: acc.y
 	});
 
-	// tslint:disable no-expression-statement no-object-mutation
-	// @ts-ignore TODO: use ramda
 	acc.svgElement = svgElement;
-	// @ts-ignore TODO: use ramda
 	acc.y = moveToNextLine(acc.y);
-	// tslint:enable no-expression-statement no-object-mutation
 
 	return acc;
 };
 
 // TODO: rewrite with ramda
 const findBeginningOfNextLine = (lineStart: number, nodes: ReadonlyArray<LineNode>) => {
-	// tslint:disable
 	let startOfNextLine;
 
 	for (let j = lineStart; j < nodes.length; ++j) {
@@ -109,7 +90,6 @@ const findBeginningOfNextLine = (lineStart: number, nodes: ReadonlyArray<LineNod
 			break;
 		}
 	}
-	// tslint:enable
 
 	return startOfNextLine;
 };
@@ -122,7 +102,6 @@ export const write = (
 	center: boolean,
 	startAt: number
 ) => {
-	// tslint:disable
 	let lines = [] as ReadonlyArray<Line>;
 	let lineStart = 0;
 
@@ -145,9 +124,7 @@ export const write = (
 		lineStart = breaks[i].position;
 	}
 
-	// @ts-ignore
 	let maxLength = Math.max.apply(null, lineLengths);
-	// @ts-ignore
 	return lines.reduce(writeLine, {
 		y: startAt,
 		lineLengths,

@@ -82,13 +82,7 @@ export const box = (width: number, value: string): Box => {
  * flagged penalties (e.g. two hyphens in a row).
  * @returns         A Line node of type Penalty.
  */
-export const penalty = (
-	width: number,
-	// tslint:disable no-shadowed-variable
-	penalty: number,
-	// tslint:enable no-shadowed-variable
-	flagged: 0 | 1
-): Penalty => {
+export const penalty = (width: number, penalty: number, flagged: 0 | 1): Penalty => {
 	return {
 		flagged,
 		kind: 'penalty',

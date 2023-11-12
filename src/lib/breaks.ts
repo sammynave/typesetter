@@ -34,9 +34,7 @@ export const findBreaks = (activeNodes: ReducableLinkedList): ReadonlyArray<Brea
 	);
 
 	// FIXME type this correctly
-	// tslint:disable
 	const { breaks } = getBestBreaks({ tmp, breaks: [] });
-	// tslint:enable
 
 	return breaks.reverse();
 };

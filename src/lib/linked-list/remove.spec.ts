@@ -1,4 +1,3 @@
-// tslint:disable:no-expression-statement no-object-mutation
 import { describe, expect, it } from 'vitest';
 import { linkedListFrom } from './index.js';
 import { remove } from './remove.js';
