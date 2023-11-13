@@ -26,7 +26,7 @@ export const linebreak = (
 	lineLengths: ReadonlyArray<number>,
 	tolerance: number = 2
 ): ReadonlyArray<Break> => {
-	const seed = {
+	const seed: Seed = {
 		activeNodes: linkedListFrom([beginningOfParagraph]),
 		lineLengths,
 		options: {

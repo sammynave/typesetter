@@ -40,7 +40,7 @@ export const SvgTypesetter = ({
 	}
 
 	const format = formatter(
-		(x: any) => measure(targetNode, parentNode, x).width,
+		(text: string) => measure(targetNode, parentNode, text).width,
 		spaceChar,
 		hyphenator
 	);
@@ -67,7 +67,7 @@ export const SvgTypesetter = ({
 		  })()
 		: (() => {
 				/* TODO
-				 * what do we actually want to do? the client show know the typeset
+				 * what do we actually want to do? the client should know that the typeset
 				 * failed but maybe we don't want to throw?
 				 */
 				throw new Error('Can not typeset with current tolerance.');

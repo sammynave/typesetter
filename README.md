@@ -6,7 +6,7 @@ https://typesetter.onrender.com/
 - [ ] test coverage
 - [ ] better typing
 - [ ] remove `ramda`
-- [ ] remove `hypher` and `en-us`. make them optional with instructions in readme.
+- [x] remove `hypher` and `en-us`. make them optional with instructions in readme.
 - [x] publish to npm
 - [x] improve api
 

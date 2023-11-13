@@ -3,7 +3,7 @@ import { describe, it } from 'vitest';
 
 describe('measurer', () => {
 	it('createTspan', () => {
-		// TODO do this in playwright/cypress
+		// TODO do this in playwright/cypress since we need the DOM
 		// const t = createTspan('hi');
 		// expect(t.textContent).toBe('hi');
 	});

@@ -44,7 +44,9 @@ const writeLineNode = (
 			? shouldCombine(node, array, index)
 				? (() => {
 						const prevTspan = acc.svgElement.lastChild;
-						prevTspan.textContent = prevTspan.textContent + node.value;
+						if (prevTspan) {
+							prevTspan.textContent = prevTspan.textContent + node.value;
+						}
 						acc.x += node.width;
 						return acc;
 				  })()
@@ -101,14 +103,14 @@ export const write = (
 	lineLengths: ReadonlyArray<number>,
 	center: boolean,
 	startAt: number
-) => {
+): SVGTextElement => {
 	let lines = [] as ReadonlyArray<Line>;
 	let lineStart = 0;
 
 	// Iterate through the line breaks, and split the nodes at the
 	// correct point.
 	for (let i = 1; i < breaks.length; ++i) {
-		let nodesOfNextLine = nodes.slice(
+		const nodesOfNextLine = nodes.slice(
 			findBeginningOfNextLine(lineStart, nodes),
 			breaks[i].position + 1
 		);
@@ -124,7 +126,7 @@ export const write = (
 		lineStart = breaks[i].position;
 	}
 
-	let maxLength = Math.max.apply(null, lineLengths);
+	const maxLength = Math.max.apply(null, lineLengths as number[]);
 	return lines.reduce(writeLine, {
 		y: startAt,
 		lineLengths,
