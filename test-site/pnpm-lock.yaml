@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@safs.io/typesetter':
-    specifier: ^0.0.6
-    version: 0.0.6
+    specifier: ^0.0.8
+    version: 0.0.8
 
 devDependencies:
   '@fontsource/fira-mono':
@@ -400,12 +400,10 @@ packages:
     resolution: {integrity: sha512-C16M+IYz0rgRhWZdCmK+h58JMv8vijAA61gmz2rspCSwKwzBebpdcsiUmwrtJRdphuY30i6BSLEOP8ppbNLyLg==}
     dev: true
 
-  /@safs.io/typesetter@0.0.6:
-    resolution: {integrity: sha512-h0os0lz9+AWcLKIeJXKsNNZRlaDSGSG3DVYg7V4Rqauz6y5TIPXE2o/+bakxAE8kPyqgXdaXNdPKzcUu8C0a9w==}
+  /@safs.io/typesetter@0.0.8:
+    resolution: {integrity: sha512-cZ0jpMjawWKt2tnHPE29h8WJ/AYjU1zmkV1xwp6AZbSbv8COcdW5+QpyiBVP3ifnHCFhTm2ujN5TRkwxsfoGPw==}
     engines: {node: '>=20.0.0 <21.0.0', npm: '>=10.0.0 <11.0.0'}
     dependencies:
-      hyphenation.en-us: 0.2.1
-      hypher: 0.2.5
       ramda: 0.29.1
     dev: false
 
@@ -1187,16 +1185,6 @@ packages:
     resolution: {integrity: sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ==}
     engines: {node: '>=8'}
     dev: true
-
-  /hyphenation.en-us@0.2.1:
-    resolution: {integrity: sha512-ItXYgvIpfN8rfXl/GTBQC7DsSb5PPsKh9gGzViK/iWzCS5mvjDebFJ6xCcIYo8dal+nSp2rUzvTT7BosrKlL8A==}
-    dependencies:
-      hypher: 0.2.5
-    dev: false
-
-  /hypher@0.2.5:
-    resolution: {integrity: sha512-kUTpuyzBWWDO2VakmjHC/cxesg4lKQP+Fdc+7lrK4yvjNjkV9vm5UTZMDAwOyyHTOpbkYrAMlNZHG61NnE9vYQ==}
-    dev: false
 
   /ignore@5.2.4:
     resolution: {integrity: sha512-MAb38BcSbH0eHNBxn7ql2NH/kX33OkB3lZ1BNdh7ENeRChHTYsTvWrMubiIAMNS2llXEEgZ1MUOBtXChP3kaFQ==}

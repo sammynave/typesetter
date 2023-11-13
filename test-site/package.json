@@ -31,6 +31,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@safs.io/typesetter": "^0.0.6"
+		"@safs.io/typesetter": "^0.0.8"
 	}
 }
