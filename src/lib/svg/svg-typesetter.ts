@@ -4,24 +4,33 @@ import type { Hyphenator, ValidAlignment } from '$lib/types.js';
 import { measure } from './measurer.js';
 import { write } from './writer.js';
 
-export const SvgTypeset = (
-	text: string,
-	element: SVGTextElement,
-	parentNode: SVGGElement,
-	alignment: ValidAlignment,
-	lineLengths: ReadonlyArray<number>,
-	tolerance: number,
-	center: boolean,
-	spaceChar: string,
-	startAt: number = 0,
-	hyphenator?: Hyphenator
-) => {
+export const SvgTypesetter = ({
+	text,
+	targetNode,
+	parentNode,
+	lineLengths,
+	alignment = 'justify',
+	tolerance = 2,
+	spaceChar = '|',
+	startAt = 0,
+	hyphenator
+}: {
+	text: string;
+	targetNode: SVGTextElement;
+	parentNode: SVGGElement;
+	lineLengths: ReadonlyArray<number>;
+	alignment?: ValidAlignment;
+	tolerance?: number;
+	spaceChar?: string;
+	startAt?: number;
+	hyphenator?: Hyphenator;
+}) => {
 	/* TODO
 	 * actual benchmarks. we clone and replace to try and limit reflows
 	 * but it hasn't been measured seriously so this may not be as fast as we
 	 * think
 	 */
-	const svgElement = element.cloneNode(true) as SVGTextElement;
+	const svgElement = targetNode.cloneNode(true) as SVGTextElement;
 	while (svgElement.lastChild) {
 		svgElement.removeChild(svgElement.lastChild);
 	}
@@ -31,7 +40,7 @@ export const SvgTypeset = (
 	}
 
 	const format = formatter(
-		(x: any) => measure(element, parentNode, x).width,
+		(x: any) => measure(targetNode, parentNode, x).width,
 		spaceChar,
 		hyphenator
 	);
@@ -41,11 +50,18 @@ export const SvgTypeset = (
 
 	return breaks.length !== 0
 		? (() => {
-				const newSvgElement = write(svgElement, nodes, breaks, lineLengths, center, startAt);
+				const newSvgElement = write(
+					svgElement,
+					nodes,
+					breaks,
+					lineLengths,
+					alignment === 'center',
+					startAt
+				);
 
 				startAt
 					? parentNode.appendChild(newSvgElement)
-					: parentNode.replaceChild(newSvgElement, element);
+					: parentNode.replaceChild(newSvgElement, targetNode);
 
 				return newSvgElement;
 		  })()

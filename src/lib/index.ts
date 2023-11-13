@@ -1,3 +1,2 @@
-import { SvgTypeset } from '$lib/svg/svg-typeset.js';
-export { SvgTypeset };
+export { SvgTypesetter } from '$lib/svg/svg-typesetter.js';
 export type * from './types.js';

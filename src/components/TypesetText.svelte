@@ -2,7 +2,7 @@
 
 <script lang="ts">
 	import type { Hyphenator, ValidAlignment } from '$lib/types.js';
-	import { SvgTypeset } from '$lib/svg/svg-typeset.js';
+	import { SvgTypesetter } from '$lib/svg/svg-typesetter.js';
 	import { onMount } from 'svelte';
 
 	export let height: number;
@@ -12,23 +12,21 @@
 	export let alignment: ValidAlignment;
 	export let fontSize: number = 16;
 	export let hyphenator: Hyphenator | undefined = undefined;
+	export let tolerance: number = 2;
 
 	let textEl: SVGTextElement;
 	let gEl: SVGGElement;
 
 	onMount(() => {
-		SvgTypeset(
+		SvgTypesetter({
 			text,
-			textEl,
-			gEl,
+			targetNode: textEl,
+			parentNode: gEl,
 			alignment,
-			[width - padding * 2],
-			20,
-			alignment === 'center',
-			'|',
-			0,
+			lineLengths: [width - padding * 2],
+			tolerance,
 			hyphenator
-		);
+		});
 	});
 </script>
 

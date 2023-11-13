@@ -2,7 +2,7 @@
 
 <script lang="ts">
 	import { Y_EM } from '$lib/svg/writer.js';
-	import { SvgTypeset } from '$lib/svg/svg-typeset.js';
+	import { SvgTypesetter } from '$lib/svg/svg-typesetter.js';
 	import { onMount } from 'svelte';
 	import type { ValidAlignment } from '$lib/types.js';
 
@@ -14,7 +14,7 @@
 
 	const lineHeightInPx = fontSize * Y_EM;
 
-	function getCircleLines({ diameter }) {
+	function getCircleLines({ diameter }: { diameter: number }) {
 		let r = [];
 		const radius = diameter / 2;
 		for (let j = 0; j < diameter; j += lineHeightInPx) {
@@ -28,16 +28,13 @@
 	let alignment: ValidAlignment = 'center';
 
 	onMount(() => {
-		SvgTypeset(
+		SvgTypesetter({
 			text,
-			textEl,
-			gEl,
+			targetNode: textEl,
+			parentNode: gEl,
 			alignment,
-			getCircleLines({ diameter: width }),
-			20,
-			alignment === 'center',
-			'|'
-		);
+			lineLengths: getCircleLines({ diameter: width })
+		});
 	});
 </script>
 

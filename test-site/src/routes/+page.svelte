@@ -1,7 +1,7 @@
 <svelte:options namespace="svg" />
 
 <script lang="ts">
-	import { SvgTypeset, type ValidAlignment } from '@safs.io/typesetter';
+	import { SvgTypesetter, type ValidAlignment } from '@safs.io/typesetter';
 	import { onMount } from 'svelte';
 
 	let height = 600;
@@ -16,17 +16,14 @@
 	let gEl: SVGGElement;
 
 	onMount(() => {
-		SvgTypeset(
+		SvgTypesetter({
 			text,
-			textEl,
-			gEl,
+			targetNode: textEl,
+			parentNode: gEl,
 			alignment,
-			[width - padding * 2],
-			20,
-			alignment === 'center',
-			'|',
-			0
-		);
+			lineLengths: [width - padding * 2],
+			tolerance: 20
+		});
 	});
 </script>
 

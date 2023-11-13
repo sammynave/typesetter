@@ -20,5 +20,14 @@
 <CircleText fontSize={16} {text} {padding} {width} {height} />
 
 <!-- hyphenation example -->
-<TypesetText alignment="justify" fontSize={15} {text} {padding} {width} {height} {hyphenator} />
+<TypesetText
+	alignment="justify"
+	fontSize={15}
+	{text}
+	{padding}
+	{width}
+	{height}
+	{hyphenator}
+	tolerance={20}
+/>
 <PineTree {text} {padding} {width} {height} {hyphenator} />
